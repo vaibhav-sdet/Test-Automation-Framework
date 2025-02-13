@@ -1,0 +1,10 @@
+com/automation/core/utils/ConfigReader.class
+com/automation/core/factory/BrowserType.class
+com/automation/core/factory/SauceLabsDriverManager.class
+com/automation/core/factory/WebDriverFactory.class
+com/automation/core/factory/FirefoxDriverManager.class
+com/automation/core/factory/WebDriverFactory$1.class
+com/automation/core/factory/DriverManager.class
+com/automation/App.class
+com/automation/core/factory/ChromeDriverManager.class
+com/automation/core/factory/EdgeDriverManager.class

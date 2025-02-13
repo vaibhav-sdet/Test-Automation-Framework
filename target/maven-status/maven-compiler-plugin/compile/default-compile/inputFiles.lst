@@ -1,0 +1,9 @@
+/Users/113414/TestAutomationFramework/src/main/java/com/automation/core/utils/ConfigReader.java
+/Users/113414/TestAutomationFramework/src/main/java/com/automation/core/factory/WebDriverFactory.java
+/Users/113414/TestAutomationFramework/src/main/java/com/automation/core/factory/SauceLabsDriverManager.java
+/Users/113414/TestAutomationFramework/src/main/java/com/automation/core/factory/DriverManager.java
+/Users/113414/TestAutomationFramework/src/main/java/com/automation/core/factory/ChromeDriverManager.java
+/Users/113414/TestAutomationFramework/src/main/java/com/automation/core/factory/EdgeDriverManager.java
+/Users/113414/TestAutomationFramework/src/main/java/com/automation/core/factory/FirefoxDriverManager.java
+/Users/113414/TestAutomationFramework/src/main/java/com/automation/App.java
+/Users/113414/TestAutomationFramework/src/main/java/com/automation/core/factory/BrowserType.java

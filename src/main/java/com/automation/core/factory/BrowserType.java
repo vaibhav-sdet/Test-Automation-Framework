@@ -1,5 +1,5 @@
 package com.automation.core.factory;
 
 public enum BrowserType {
-    CHROME, FIREFOX, EDGE
+    CHROME, FIREFOX, EDGE, SAUCELABS
 }
