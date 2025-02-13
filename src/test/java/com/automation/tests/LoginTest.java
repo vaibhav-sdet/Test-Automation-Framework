@@ -2,6 +2,7 @@ package com.automation.tests;
 
 import com.automation.core.factory.BrowserType;
 import com.automation.core.factory.WebDriverFactory;
+import com.automation.core.utils.LoggerUtil;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -12,14 +13,13 @@ public class LoginTest {
 
     @BeforeClass
     public void setup() {
-        driver = WebDriverFactory.getDriver(BrowserType.SAUCELABS); // Change as needed
+        driver = WebDriverFactory.getDriver(BrowserType.CHROME); // Change as needed
         driver.get("https://www.google.com/");
     }
 
     @Test
     public void testLogin() {
-        System.out.println("Executing login test...");
-        // Add test logic here
+        LoggerUtil.info("Executing login test...");
     }
 
     @AfterClass

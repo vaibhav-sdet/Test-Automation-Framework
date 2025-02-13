@@ -1,5 +1,6 @@
 package com.automation.core.factory;
 
+import com.automation.core.utils.LoggerUtil;
 import org.openqa.selenium.WebDriver;
 
 public class WebDriverFactory {
@@ -10,7 +11,9 @@ public class WebDriverFactory {
 
     public static WebDriver getDriver(BrowserType browser) {
         if (driverThreadLocal.get() == null) {
+            LoggerUtil.info("Initializing WebDriver...");
             driverThreadLocal.set(createDriver(browser));
+            LoggerUtil.info("WebDriver initialized successfully.");
         }
         return driverThreadLocal.get();
     }

@@ -1,0 +1,8 @@
+<configuration>
+    <logger name="io.netty" level="WARN"/>
+    <logger name="org.apache.hc.client5.http" level="WARN"/>
+    <logger name="org.asynchttpclient" level="WARN"/>
+    <root level="INFO">
+        <appender-ref ref="Console"/>
+    </root>
+</configuration>
