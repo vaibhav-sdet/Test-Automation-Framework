@@ -3,6 +3,7 @@ package com.automation.tests;
 import com.automation.core.factory.BrowserType;
 import com.automation.core.factory.WebDriverFactory;
 //import com.automation.core.utils.LoggerUtil;
+import com.automation.core.utils.LoggerUtil;
 import com.automation.libraries.common.ElementActions;
 import com.automation.libraries.common.WaitUtils;
 import org.openqa.selenium.By;
@@ -22,13 +23,14 @@ public class LoginTest {
     public void setup() {
         driver = WebDriverFactory.getDriver(BrowserType.CHROME); // Change as needed
         waitUtils = new WaitUtils(driver, 10);
-
-        elementActions = new ElementActions(driver, waitUtils); // Initializing ElementActions
+        elementActions = new ElementActions(driver); // Initializing ElementActions
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
     }
 
     @Test
     public void testLogin() {
+        LoggerUtil.info("Test Started...");
+
         WebElement usernameField = waitUtils.waitForVisibility(By.name("username"));
         WebElement passwordField = driver.findElement(By.name("password"));
         WebElement loginButton = driver.findElement(By.xpath("//button[@type='submit']"));

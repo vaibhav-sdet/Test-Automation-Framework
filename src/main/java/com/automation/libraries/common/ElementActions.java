@@ -12,7 +12,7 @@ public class ElementActions implements BaseElementActions {
 
 
     // Constructor for Dependency Injection
-    public ElementActions(WebDriver driver, WaitUtils waitUtils) {
+    public ElementActions(WebDriver driver) {
         this.driver = driver;
         this.waitUtils = new WaitUtils(driver, 10); // Default timeout 10s
     }
@@ -20,7 +20,7 @@ public class ElementActions implements BaseElementActions {
     @Override
     public void click(WebElement element) {
         try {
-            waitUtils.waitForVisibility(element).click();
+            waitUtils.waitForClickability(element).click();
         } catch (Exception e) {
             // Fallback to JavaScript click if normal click fails
             JavascriptExecutor js = (JavascriptExecutor) driver;

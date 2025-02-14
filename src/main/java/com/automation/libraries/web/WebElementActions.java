@@ -15,14 +15,14 @@ public class WebElementActions extends ElementActions {
 
     // Constructor
     public WebElementActions(WebDriver driver, WaitUtils waitUtils) {
-        super(driver,waitUtils );
-        this.waitUtils = new WaitUtils(driver, 10);
+        super(driver );
+        this.waitUtils = waitUtils;
     }
 
     // Overriding click to add explicit wait
     @Override
     public void click(WebElement element) {
-        waitUtils.waitForClickability(element).click();
+        super.click(element);  // Use base class click method with JS fallback
     }
 
     // Web-Specific Actions
