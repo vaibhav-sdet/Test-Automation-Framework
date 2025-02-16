@@ -6,18 +6,24 @@ import org.openqa.selenium.WebDriver;
 public class WebDriverFactory {
 
     private static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
+    private static final ThreadLocal<BrowserType> browserThreadLocal = new ThreadLocal<>();
 
     private WebDriverFactory() { } // Prevent instantiation
 
-    public static WebDriver getDriver(BrowserType browser) {
+    public static void setDriver(BrowserType browser) {
         if (driverThreadLocal.get() == null) {
-            LoggerUtil.info("Initializing WebDriver...");
+            LoggerUtil.info("Initializing WebDriver for: " + browser);
+            browserThreadLocal.set(browser);
             driverThreadLocal.set(createDriver(browser));
-            LoggerUtil.info("WebDriver initialized successfully.");
+            LoggerUtil.info("WebDriver initialized successfully for: " + browser);
         }
+    }
+
+    public static WebDriver getDriver() {
         return driverThreadLocal.get();
     }
-    public static WebDriver createDriver(BrowserType browserType) {
+
+    private static WebDriver createDriver(BrowserType browserType) {
         DriverManager driverManager;
 
         switch (browserType) {
@@ -37,5 +43,15 @@ public class WebDriverFactory {
                 throw new IllegalArgumentException("Unsupported browser: " + browserType);
         }
         return driverManager.createDriver();
+    }
+
+    public static void quitDriver() {
+        if (driverThreadLocal.get() != null) {
+            LoggerUtil.info("Quitting WebDriver for: " + browserThreadLocal.get());
+            driverThreadLocal.get().quit();
+            driverThreadLocal.remove();
+            browserThreadLocal.remove();
+            LoggerUtil.info("WebDriver session cleaned up successfully.");
+        }
     }
 }
