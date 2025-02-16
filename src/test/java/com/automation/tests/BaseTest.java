@@ -7,15 +7,20 @@ import com.automation.libraries.web.WebElementActions;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
 public class BaseTest {
     protected WebDriver driver;
     protected WebElementActions elementActions;
     protected WaitUtils waitUtils;
+    private BrowserType browserType;
+
 
     @BeforeClass
-    public void setup() {
-        driver = WebDriverFactory.getDriver(BrowserType.CHROME); // Change as needed
+    @Parameters("browser")
+    public void setup(String browser) {
+        driver = WebDriverFactory.getDriver(BrowserType.valueOf(browser.toUpperCase())); // Change as needed
         waitUtils = new WaitUtils(driver, 10);
         elementActions = new WebElementActions(driver, waitUtils);
         driver.manage().window().maximize();
