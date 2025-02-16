@@ -5,10 +5,7 @@ import com.automation.core.factory.WebDriverFactory;
 import com.automation.libraries.common.WaitUtils;
 import com.automation.libraries.web.WebElementActions;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 public class BaseTest {
     protected WebDriver driver;
@@ -17,19 +14,20 @@ public class BaseTest {
     private BrowserType browserType;
 
 
-    @BeforeClass
+    @BeforeMethod
     @Parameters("browser")
     public void setup(String browser) {
-        driver = WebDriverFactory.getDriver(BrowserType.valueOf(browser.toUpperCase())); // Change as needed
+        BrowserType browserType = BrowserType.valueOf(browser.toUpperCase());
+        WebDriverFactory.setDriver(browserType);  // Set driver per test thread
+        driver = WebDriverFactory.getDriver();    // Get driver from ThreadLocal storage
+
         waitUtils = new WaitUtils(driver, 10);
         elementActions = new WebElementActions(driver, waitUtils);
         driver.manage().window().maximize();
     }
 
-    @AfterClass
+    @AfterMethod
     public void teardown() {
-        if (driver != null) {
-            driver.quit();
-        }
+        WebDriverFactory.quitDriver();  // Ensures driver is closed properly for each test method
     }
 }
