@@ -21,8 +21,6 @@ public class DashboardTest extends BaseTest {
         loginPage.enterUsername("Admin");
         loginPage.enterPassword("admin123");
         loginPage.clickLogin();
-
-        // Validate login success
         Assert.assertTrue(loginPage.isUserDropdownDisplayed(), "Login Failed");
 
     }
