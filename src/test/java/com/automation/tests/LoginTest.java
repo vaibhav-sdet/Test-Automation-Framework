@@ -4,12 +4,13 @@ import com.automation.core.utils.LoggerUtil;
 import com.automation.pages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
     private LoginPage loginPage;
 
-    @BeforeClass
+    @BeforeMethod
     public void navigateToLoginPage() {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         loginPage = new LoginPage(driver, elementActions);
