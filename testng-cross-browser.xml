@@ -2,16 +2,16 @@
     <test name="Chrome Tests">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.automation.tests.LoginTest"/>
-            <class name="com.automation.tests.DashboardTest"/>
+            <class name="LoginTest"/>
+            <class name="DashboardTest"/>
         </classes>
     </test>
 
     <test name="Firefox Tests">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="com.automation.tests.LoginTest"/>
-            <class name="com.automation.tests.DashboardTest"/>
+            <class name="LoginTest"/>
+            <class name="DashboardTest"/>
         </classes>
     </test>
 </suite>
