@@ -1,13 +1,12 @@
-package com.automation.tests;
+package com.automation.ui.tests;
 
 import com.automation.core.utils.LoggerUtil;
 import com.automation.pages.LoginPage;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class LoginTest extends BaseTest {
+public class DashboardTest extends BaseTest {
     private LoginPage loginPage;
 
     @BeforeMethod
@@ -17,8 +16,8 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void testLogin() {
-        LoggerUtil.info("Login Test Started...");
+    public void testDashboard() {
+        LoggerUtil.info("Dashboard Test Started...");
         loginPage.enterUsername("Admin");
         loginPage.enterPassword("admin123");
         loginPage.clickLogin();

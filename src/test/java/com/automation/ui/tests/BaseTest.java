@@ -1,4 +1,4 @@
-package com.automation.tests;
+package com.automation.ui.tests;
 
 import com.automation.core.factory.BrowserType;
 import com.automation.core.factory.WebDriverFactory;
