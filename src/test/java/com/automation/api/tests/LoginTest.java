@@ -18,7 +18,7 @@ public class LoginTest extends BaseApiTest {
         Response response = BaseAPIClient.get(requestSpec, basePath);
         APIResponseValidator.validateStatusCode(response, 200);
         LoggerUtil.info(response.asString());
-       // Assert.assertFalse(response.jsonPath().getList("$").isEmpty(), "User list is empty!");
+        Assert.assertFalse(response.jsonPath().getJsonObject("results").toString().isEmpty(), "User list is empty!");
     }
 
     @Test
