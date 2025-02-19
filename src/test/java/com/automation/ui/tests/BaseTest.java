@@ -1,6 +1,6 @@
 package com.automation.ui.tests;
 
-import com.automation.core.factory.BrowserType;
+import com.automation.core.BrowserType;
 import com.automation.core.factory.WebDriverFactory;
 import com.automation.libraries.common.WaitUtils;
 import com.automation.libraries.web.WebElementActions;

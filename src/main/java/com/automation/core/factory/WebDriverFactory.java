@@ -1,5 +1,6 @@
 package com.automation.core.factory;
 
+import com.automation.core.BrowserType;
 import com.automation.core.utils.LoggerUtil;
 import org.openqa.selenium.WebDriver;
 
