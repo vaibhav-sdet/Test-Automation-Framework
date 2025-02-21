@@ -2,11 +2,14 @@ package com.automation.libraries.mobile;
 
 
 import com.automation.libraries.common.ElementActions;
+import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
+import org.openqa.selenium.remote.RemoteWebElement;
 
 import java.time.Duration;
 import java.util.Collections;
@@ -25,11 +28,9 @@ public class MobileElementActions extends ElementActions {
     }
 
     public void longPress(WebElement element) {
-        new Actions(driver)
-                .clickAndHold(element)
-                .pause(Duration.ofSeconds(2))
-                .release()
-                .perform();
+        ((JavascriptExecutor)driver).executeScript("mobile: longClickGesture",
+                ImmutableMap.of("elementId",((RemoteWebElement)element).getId(),
+                        "duration",2000));
     }
 
     public void swipe(int startX, int startY, int endX, int endY) {
@@ -72,5 +73,19 @@ public class MobileElementActions extends ElementActions {
                 .moveByOffset(10, 10)
                 .release()
                 .perform();
+    }
+
+    public void scrollToEndAction()
+    {
+        boolean canScrollMore;
+        do
+        {
+            canScrollMore = (Boolean) ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of(
+                    "left", 100, "top", 100, "width", 200, "height", 200,
+                    "direction", "down",
+                    "percent", 3.0
+
+            ));
+        }while(canScrollMore);
     }
 }
