@@ -88,4 +88,15 @@ public class MobileElementActions extends ElementActions {
             ));
         }while(canScrollMore);
     }
+
+
+    public void swipeAction(WebElement ele,String direction)
+    {
+        ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement)ele).getId(),
+
+                "direction", direction,
+                "percent", 0.75
+        ));
+    }
 }
