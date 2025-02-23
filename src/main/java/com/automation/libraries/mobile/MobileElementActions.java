@@ -10,7 +10,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.remote.RemoteWebElement;
-
 import java.time.Duration;
 import java.util.Collections;
 
@@ -97,6 +96,14 @@ public class MobileElementActions extends ElementActions {
 
                 "direction", direction,
                 "percent", 0.75
+        ));
+    }
+
+    public void DragDropTest(WebElement source, int endX, int endY)  {
+        ((JavascriptExecutor) driver).executeScript("mobile: dragGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) source).getId(),
+                "endX", endX,
+                "endY", endY
         ));
     }
 }
