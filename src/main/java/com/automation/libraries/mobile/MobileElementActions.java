@@ -99,7 +99,7 @@ public class MobileElementActions extends ElementActions {
         ));
     }
 
-    public void DragDropTest(WebElement source, int endX, int endY)  {
+    public void DragDrop(WebElement source, int endX, int endY)  {
         ((JavascriptExecutor) driver).executeScript("mobile: dragGesture", ImmutableMap.of(
                 "elementId", ((RemoteWebElement) source).getId(),
                 "endX", endX,
